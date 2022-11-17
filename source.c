@@ -50,14 +50,15 @@ int main() {
     for (int i = 0; i < n; i++)
         b[a[i]]++;
     
-    int max;
+    int max = 0;
     int index = 0;
     for (int i = 0; i < a[n-1]+1; i++)
         if (b[i] != 0) 
-            if (b[i] > max) {
+            if (b[i] > index) {
                 max = i;
                 index = b[i];
             }
 
+    printf("%d %d", max, index);
     return 0;
 }
