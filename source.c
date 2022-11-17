@@ -43,21 +43,17 @@ int main() {
 
     quickSort(a, 0, n-1);
 
-
-    int b[a[n-1]+1];
-    for (int i = 0; i < a[n-1]+1; i++)
-        b[i] = 0;
-    for (int i = 0; i < n; i++)
-        b[a[i]]++;
-    
-    int max = 0;
-    int index = 0;
-    for (int i = 0; i < a[n-1]+1; i++)
-        if (b[i] != 0) 
-            if (b[i] > index) {
-                max = i;
-                index = b[i];
-            }
+    int index = 0, max, index1 = 1;
+    for (int i = 0; i < n; i++) {
+        if (a[i] != a[i+1]) 
+            index1 = 1;
+        else 
+            index1++;
+        if (index1 >= index) {
+            index = index1;
+            max = a[i];
+        }
+    }
 
     printf("%d %d", max, index);
     return 0;
